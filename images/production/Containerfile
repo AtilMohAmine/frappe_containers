@@ -2,7 +2,7 @@ ARG PYTHON_VERSION=3.10.5
 FROM python:${PYTHON_VERSION}-slim-bullseye AS base
 
 ARG WKHTMLTOPDF_VERSION=0.12.6-1
-ARG NODE_VERSION=16.18.0
+ARG NODE_VERSION=18.18.2
 ENV NVM_DIR=/home/frappe/.nvm
 ENV PATH ${NVM_DIR}/versions/node/v${NODE_VERSION}/bin/:${PATH}
 
@@ -13,6 +13,9 @@ RUN useradd -ms /bin/bash frappe \
     git \
     vim \
     nginx \
+    file \
+    supervisor \
+    redis-server \
     gettext-base \
     # MariaDB
     mariadb-client \
@@ -74,10 +77,11 @@ RUN apt-get update \
 
 USER frappe
 
-ARG FRAPPE_BRANCH=version-14
+ARG FRAPPE_BRANCH=version-15
 ARG FRAPPE_PATH=https://github.com/frappe/frappe
 ARG ERPNEXT_REPO=https://github.com/frappe/erpnext
-ARG ERPNEXT_BRANCH=version-14
+ARG ERPNEXT_BRANCH=version-15
+
 RUN bench init \
   --frappe-branch=${FRAPPE_BRANCH} \
   --frappe-path=${FRAPPE_PATH} \
@@ -89,6 +93,8 @@ RUN bench init \
   /home/frappe/frappe-bench
 
 WORKDIR /home/frappe/frappe-bench
+
+RUN bench get-app --skip-assets --resolve-deps payments
 
 RUN bench get-app --branch=${ERPNEXT_BRANCH} --skip-assets --resolve-deps erpnext ${ERPNEXT_REPO} && \
   export BUILD_OPTS="--production --hard-link" && \
@@ -113,19 +119,23 @@ RUN sed -i '/user www-data/d' /etc/nginx/nginx.conf && \
 COPY resources/nginx-template.conf /templates/nginx/frappe.conf.template
 COPY resources/nginx-entrypoint.sh /usr/local/bin/nginx-entrypoint.sh
 COPY resources/push_backup.py /usr/local/bin/push-backup
+
+# Backup scripts
+COPY resources/backup-manager.sh /usr/local/bin/backup-manager.sh
+COPY resources/list-backups.sh /usr/local/bin/list-backups.sh
+RUN chmod +x /usr/local/bin/backup-manager.sh /usr/local/bin/list-backups.sh
+
 USER frappe
 COPY --from=builder --chown=frappe:frappe /home/frappe/frappe-bench /home/frappe/frappe-bench
 WORKDIR /home/frappe/frappe-bench
 
-CMD [ \
-  "/home/frappe/frappe-bench/env/bin/gunicorn", \
-  "--chdir=/home/frappe/frappe-bench/sites", \
-  "--bind=0.0.0.0:8000", \
-  "--threads=4", \
-  "--workers=2", \
-  "--worker-class=gthread", \
-  "--worker-tmp-dir=/dev/shm", \
-  "--timeout=120", \
-  "--preload", \
-  "frappe.app:application" \
-]
+COPY resources/redis-cache.conf /home/frappe/frappe-bench/config/redis-cache.conf
+COPY resources/redis-queue.conf /home/frappe/frappe-bench/config/redis-queue.conf
+
+COPY resources/supervisord.conf /etc/supervisor/supervisord.conf
+RUN mkdir -p /etc/supervisor/conf.d
+USER root
+RUN mkdir -p /var/run/supervisor/ && chmod 755 /var/run/supervisor/
+USER frappe
+
+CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]
