@@ -132,6 +132,10 @@ WORKDIR /home/frappe/frappe-bench
 COPY resources/redis-cache.conf /home/frappe/frappe-bench/config/redis-cache.conf
 COPY resources/redis-queue.conf /home/frappe/frappe-bench/config/redis-queue.conf
 
+# skip-wizard script
+COPY resources/skip-wizard/ipython.py /tmp
+COPY resources/skip-wizard/records.json /tmp
+
 COPY resources/supervisord.conf /etc/supervisor/supervisord.conf
 RUN mkdir -p /etc/supervisor/conf.d
 USER root

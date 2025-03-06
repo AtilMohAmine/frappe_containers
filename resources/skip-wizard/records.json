@@ -1,0 +1,549 @@
+[
+    {
+      "doctype": "Customer",
+      "customer_group": "All Customer Groups",
+      "customer_type": "Company",
+      "customer_name": "Narayana Health",
+      "territory": "All Territories"
+    },
+    {
+      "doctype": "Customer",
+      "customer_name": "Dummy customer",
+      "customer_group": "All Customer Groups",
+      "territory": "All Territories"
+    },
+    {
+      "doctype": "Item Group",
+      "item_group_name": "Consumable",
+      "parent_item_group": "All Item Groups",
+      "is_group": "Yes"
+    },
+    {
+      "doctype": "Item Group",
+      "item_group_name": "Services",
+      "parent_item_group": "All Item Groups",
+      "is_group": "Yes"
+    },
+    {
+      "doctype": "Holiday List",
+      "name": "weekends",
+      "holiday_list_name": "weekends",
+      "from_date": "2021-04-01",
+      "to_date": "2022-03-31",
+      "total_holidays": 1,
+      "holidays": [
+        {
+          "doctype": "Holiday",
+          "docstatus": 0,
+          "idx": 1,
+          "holiday_date": "2022-03-06",
+          "weekly_off": 0,
+          "description": "sunday",
+          "parent": "weekends",
+          "parentfield": "holidays",
+          "parenttype": "Holiday List"
+        }
+      ]
+    },
+    {
+      "doctype": "Gender",
+      "gender": "Male"
+    },
+    {
+      "doctype": "Gender",
+      "gender": "Female"
+    },
+    {
+      "doctype": "Dosage Form",
+      "dosage_form": "Ear Gel"
+    },
+    {
+      "doctype": "Party Type",
+      "party_type": "Customer",
+      "account_type": "Receivable"
+    },
+    {
+      "doctype": "User",
+      "email": "dummy@user.com",
+      "first_name": "dummy user",
+      "user_type": "System User"
+    },
+    {
+      "doctype": "User",
+      "email": "doctor@f.f",
+      "first_name": "doctor user",
+      "user_type": "System User"
+    },
+    {
+      "doctype": "Employee",
+      "company": "Frappe",
+      "first_name": "dummy employee",
+      "gender": "Male",
+      "date_of_birth": "2022-02-14",
+      "date_of_joining": "2022-02-16"
+    },
+    {
+      "doctype": "Lab Test UOM",
+      "lab_test_uom": "U/ml"
+    },
+    {
+      "doctype": "Lab Test UOM",
+      "lab_test_uom": "K/ul"
+    },
+    {
+      "doctype": "Lab Test UOM",
+      "lab_test_uom": "g/dL"
+    },
+    {
+      "doctype": "UOM",
+      "uom_name": "U/ml"
+    },
+    {
+      "doctype": "UOM",
+      "uom_name": "K/ul"
+    },
+    {
+      "doctype": "UOM",
+      "uom_name": "g/dL"
+    },
+    {
+      "doctype": "User",
+      "email": "dummy@user.com",
+      "first_name": "dummy user",
+      "user_type": "System User",
+      "roles": [
+        {
+          "docstatus": 0,
+          "doctype": "Has Role",
+          "parent": "dummy@user.com",
+          "parentfield": "roles",
+          "parenttype": "User",
+          "role": "System Manager"
+        }
+      ]
+    },
+    {
+      "doctype": "Employee",
+      "company": "Frappe",
+      "first_name": "Dr. Devi Shetty",
+      "gender": "Male",
+      "date_of_birth": "1992-01-01",
+      "date_of_joining": "2000-01-01",
+      "leave_approver": "dummy@user.com"
+    },
+    {
+      "doctype": "Employee",
+      "company": "Frappe",
+      "first_name": "Ms. Aswini",
+      "gender": "Female",
+      "date_of_birth": "1992-01-01",
+      "date_of_joining": "2000-01-01",
+      "leave_approver": "dummy@user.com"
+    },
+    {
+      "doctype": "Employee",
+      "company": "Frappe",
+      "first_name": "Ms. Shalini",
+      "gender": "Female",
+      "date_of_birth": "1992-01-01",
+      "date_of_joining": "2000-01-01",
+      "leave_approver": "dummy@user.com"
+    },
+    {
+      "doctype": "Fiscal Year",
+      "year": "2022-2023",
+      "year_end_date": "2023-03-31",
+      "year_start_date": "2022-04-01"
+    },
+    {
+      "doctype": "Healthcare Activity",
+      "activity": "BP Check",
+      "activity_duration": 600
+    },
+    {
+      "doctype": "Healthcare Activity",
+      "activity": "CBC Report"
+    },
+    {
+      "doctype": "Healthcare Activity",
+      "activity": "ECG Check"
+    },
+    {
+      "doctype": "Healthcare Activity",
+      "activity": "BMI Check"
+    },
+    {
+      "doctype": "Healthcare Activity",
+      "activity": "Vitals Check"
+    },
+    {
+      "doctype": "Healthcare Activity",
+      "activity": "X-Ray"
+    },
+    {
+      "doctype": "Healthcare Activity",
+      "activity": "Sample Collection"
+    },
+    {
+      "doctype": "Healthcare Practitioner",
+      "first_name": "Ms. Aswini",
+      "department": "Cardiology"
+    },
+    {
+      "doctype": "Healthcare Practitioner",
+      "first_name": "Dr. Devi Shetty",
+      "department": "Cardiology"
+    },
+    {
+      "doctype": "Healthcare Practitioner",
+      "first_name": "Ms. Shalini",
+      "department": "Cardiology"
+    },
+    {
+      "doctype": "Healthcare Service Unit Type",
+      "service_unit_type": "OPD Room",
+      "allow_appointments": 1
+    },
+    {
+      "doctype": "Healthcare Service Unit Type",
+      "service_unit_type": "Operation Theater",
+      "inpatient_occupancy": 1
+    },
+    {
+      "doctype": "Healthcare Service Unit",
+      "healthcare_service_unit_name": "OPD - Cardio",
+      "service_unit_type": "OPD Room",
+      "company": "Frappe"
+    },
+    {
+      "doctype": "Healthcare Service Unit",
+      "healthcare_service_unit_name": "OT - Cardio",
+      "service_unit_type": "Operation Theater",
+      "company": "Frappe"
+    },
+    {
+      "doctype": "UOM",
+      "name": "Nos",
+      "enabled": 1,
+      "uom_name": "Nos"
+    },
+    {
+      "doctype": "Item",
+      "name": "Apple MacBook Air",
+      "item_code": "Apple MacBook Air",
+      "item_name": "Apple MacBook Air",
+      "item_group": "Consumable",
+      "stock_uom": "Nos",
+      "is_stock_item": 1,
+      "standard_rate": 112000,
+      "description": "Apple MacBook Air",
+      "default_material_request_type": "Purchase"
+    },
+    {
+      "doctype": "Item",
+      "item_name": "Complete Blood Count",
+      "item_code": "Complete Blood Count",
+      "item_group": "Services",
+      "stock_uom": "Nos",
+      "standard_rate": 200,
+      "description": "Lab test - Complete Blood Count"
+    },
+    {
+      "doctype": "Membership Type",
+      "membership_type": "Regular",
+      "amount": 100
+    },
+    {
+      "doctype": "Member",
+      "member_name": "Mehta",
+      "membership_type": "Regular",
+      "pan_number": "BKTPP1234A"
+    },
+    {
+      "doctype": "Patient",
+      "first_name": "Buddu",
+      "sex": "Male",
+      "email": "buddu@example.com",
+      "mobile": "+91 0000000009",
+      "invite_user": 0
+    },
+    {
+      "doctype": "Patient Appointment",
+      "patient": "Buddu",
+      "company": "Frappe",
+      "status": "Closed",
+      "practitioner": "HLC-PRAC-2021-00001",
+      "department": "Cardiology",
+      "service_unit": "OPD - Cardio - F",
+      "duration": 15,
+      "appointment_date": "2020-01-01",
+      "appointment_time": "09:00:00",
+      "invoiced": 0,
+      "paid_amount": 0,
+      "reminded": 0
+    },
+    {
+      "doctype": "Payment Entry",
+      "company": "Frappe",
+      "payment_type": "Receive",
+      "posting_date": "2022-02-17",
+      "mode_of_payment": "Cash",
+      "party_type": "Customer",
+      "party": "Dummy customer",
+      "paid_from": "Debtors - FT",
+      "paid_from_account_type": "Receivable",
+      "paid_from_account_currency": "INR",
+      "paid_to": "Cash - FT",
+      "paid_to_account_type": "Cash",
+      "paid_to_account_currency": "INR",
+      "paid_amount": 123,
+      "received_amount": 123,
+      "status": "Submitted",
+      "source_exchange_rate": 1,
+      "target_exchange_rate": 1
+    },
+    {
+      "doctype": "Shift Type",
+      "name": "Morning Shift",
+      "start_time": "06:00:00",
+      "end_time": "12:00:00",
+      "holiday_list": "weekends",
+      "enable_auto_attendance": 1
+    },
+    {
+      "doctype": "Shift Type",
+      "name": "Afternoon Shift",
+      "start_time": "12:00:00",
+      "end_time": "16:00:00",
+      "holiday_list": "weekends",
+      "enable_auto_attendance": 1
+    },
+    {
+      "doctype": "Shift Type",
+      "name": "Evening Shift",
+      "start_time": "16:00:00",
+      "end_time": "20:00:00",
+      "holiday_list": "weekends",
+      "enable_auto_attendance": 1
+    },
+    {
+      "doctype": "Shift Type",
+      "name": "Night Shift",
+      "start_time": "20:00:00",
+      "end_time": "06:00:00",
+      "holiday_list": "weekends",
+      "enable_auto_attendance": 1
+    },
+    {
+      "doctype": "Shift Type",
+      "name": "Night Shift",
+      "start_time": "22:00:00",
+      "end_time": "4:00:00",
+      "holiday_list": "weekends",
+      "enable_auto_attendance": 1
+    },
+    {
+      "doctype": "Nursing Checklist Template",
+      "name": "Discharge checklist",
+      "title": "Discharge checklist",
+      "tasks": [
+        {
+          "doctype": "Nursing Checklist Template Task",
+          "activity": "BP Check",
+          "task_duration": 600,
+          "parent": "Discharge checklist",
+          "parentfield": "tasks",
+          "parenttype": "Nursing Checklist Template"
+        }
+      ]
+    },
+    {
+      "doctype": "Lab Test Template",
+      "item": "Complete Blood Count",
+      "name": "Complete Blood Count",
+      "lab_test_name": "Complete Blood Count",
+      "lab_test_code": "Complete Blood Count",
+      "lab_test_group": "Services",
+      "lab_test_template_type": "Compound",
+      "is_billable": 1,
+      "lab_test_rate": 200,
+      "lab_test_description": "Complete Blood Count",
+      "department": "Haematology",
+      "sample": "Blood Sample",
+      "sample_uom": "U/ml",
+      "sample_qty": 10,
+      "normal_test_templates": [
+        {
+          "idx": 1,
+          "lab_test_event": "WBC (White Blood Cells)",
+          "normal_range": "4.5 - 11.5",
+          "parent": "Complete Blood Count",
+          "parentfield": "normal_test_templates",
+          "parenttype": "Lab Test Template",
+          "doctype": "Normal Test Template"
+        },
+        {
+          "idx": 2,
+          "lab_test_event": "RBC (Red Blood Cells)",
+          "normal_range": "4 - 5.4",
+          "parent": "Complete Blood Count",
+          "parentfield": "normal_test_templates",
+          "parenttype": "Lab Test Template",
+          "doctype": "Normal Test Template"
+        },
+        {
+          "idx": 3,
+          "lab_test_event": "Hemoglobin",
+          "normal_range": "12 - 15",
+          "parent": "Complete Blood Count",
+          "parentfield": "normal_test_templates",
+          "parenttype": "Lab Test Template",
+          "doctype": "Normal Test Template"
+        },
+        {
+          "idx": 4,
+          "lab_test_event": "Platelets",
+          "normal_range": "150 - 540",
+          "parent": "Complete Blood Count",
+          "parentfield": "normal_test_templates",
+          "parenttype": "Lab Test Template",
+          "doctype": "Normal Test Template"
+        }
+      ]
+    },
+    {
+      "doctype": "Lab Test UOM",
+      "lab_test_uom": "K/ul"
+    },
+    {
+      "doctype": "Lab Test UOM",
+      "lab_test_uom": "g/dL"
+    },
+    {
+      "doctype": "Lab Test UOM",
+      "lab_test_uom": "M/uL"
+    },
+    {
+      "doctype": "Nursing Checklist Template",
+      "title": "Admission checklist",
+      "tasks": [
+        {
+          "idx": 1,
+          "activity": "BP Check",
+          "mandatory": 1,
+          "task_duration": 600,
+          "parent": "Admission checklist",
+          "parentfield": "tasks",
+          "parenttype": "Nursing Checklist Template",
+          "doctype": "Nursing Checklist Template Task"
+        }
+      ]
+    },
+    {
+      "doctype": "Salary Structure",
+      "name": "Monthly Salary",
+      "docstatus": 1,
+      "payroll_frequency": "Monthly",
+      "company": "Frappe",
+      "currency": "INR",
+      "earnings": [
+        {
+          "salary_component": "Basic",
+          "abbr": "B",
+          "amount": 10000,
+          "parent": "SS2",
+          "parentfield": "earnings",
+          "parenttype": "Salary Structure",
+          "doctype": "Salary Detail"
+        },
+        {
+          "salary_component": "House Rent Allowance",
+          "abbr": "HRA",
+          "amount": 5000,
+          "parent": "SS2",
+          "parentfield": "earnings",
+          "parenttype": "Salary Structure",
+          "doctype": "Salary Detail"
+        }
+      ],
+      "deductions": [
+        {
+          "salary_component": "Income Tax",
+          "abbr": "IT",
+          "amount_based_on_formula": 1,
+          "formula": ".2*(B+HRA)",
+          "parent": "SS2",
+          "parentfield": "deductions",
+          "parenttype": "Salary Structure",
+          "doctype": "Salary Detail"
+        }
+      ]
+    },
+    {
+      "doctype": "User",
+      "email": "doctor@f.f",
+      "first_name": "doctor devi shetty",
+      "user_type": "System User",
+      "roles": [
+        {
+          "docstatus": 0,
+          "doctype": "Has Role",
+          "parent": "doctor@f.f",
+          "parentfield": "roles",
+          "parenttype": "User",
+          "role": "Physician"
+        }
+      ]
+    },
+    {
+      "doctype": "User",
+      "email": "aswini@g.c",
+      "first_name": "aswini",
+      "user_type": "System User",
+      "roles": [
+        {
+          "docstatus": 0,
+          "doctype": "Has Role",
+          "parent": "aswini@g.c",
+          "parentfield": "roles",
+          "parenttype": "User",
+          "role": "Nursing User"
+        }
+      ]
+    },
+    {
+      "doctype": "Note",
+      "title": "Dummy",
+      "public": 1,
+      "content": "<div class=\"ql-editor read-mode\"><p>Dummy content</p></div>"
+    },
+    {
+      "doctype": "Leave Allocation",
+      "company": "Frappe",
+      "docstatus": 1,
+      "leave_type": "Casual Leave",
+      "from_date": "2022-01-01",
+      "to_date": "2022-12-31",
+      "new_leaves_allocated": 20,
+      "total_leaves_allocated": 20,
+      "employee": "HR-EMP-00001"
+    },
+    {
+      "name": "Frappe",
+      "docstatus": 0,
+      "letter_head_name": "Frappe",
+      "source": "HTML",
+      "is_default": 1,
+      "align": "Left",
+      "content": "<img src=\"https://frappe.io/files/frappe-logo-type.png\" style=\"width: 100px;\">",
+      "doctype": "Letter Head"
+    },
+    {
+      "doctype": "ABDM Integration",
+      "gateway_name": "ABDM",
+      "default": 1,
+      "company": "Frappe",
+      "auth_base_url": "https://dev.abdm.gov.in/gateway/",
+      "health_id_base_url": "https://healthidsbx.abdm.gov.in/api/"
+    }
+  ]
